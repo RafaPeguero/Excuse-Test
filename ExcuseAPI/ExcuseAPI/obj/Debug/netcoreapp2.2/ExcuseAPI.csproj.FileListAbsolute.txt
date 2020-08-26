@@ -1,0 +1,14 @@
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\bin\Debug\netcoreapp2.2\ExcuseAPI.deps.json
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\bin\Debug\netcoreapp2.2\ExcuseAPI.runtimeconfig.json
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\bin\Debug\netcoreapp2.2\ExcuseAPI.runtimeconfig.dev.json
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\bin\Debug\netcoreapp2.2\ExcuseAPI.dll
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\bin\Debug\netcoreapp2.2\ExcuseAPI.pdb
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.csproj.CoreCompileInputs.cache
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.RazorAssemblyInfo.cache
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.RazorAssemblyInfo.cs
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.AssemblyInfoInputs.cache
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.AssemblyInfo.cs
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.RazorTargetAssemblyInfo.cache
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.dll
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.pdb
+C:\Users\r.peguero\Documents\Excuses-test\ExcuseAPI\ExcuseAPI\obj\Debug\netcoreapp2.2\ExcuseAPI.csprojAssemblyReference.cache

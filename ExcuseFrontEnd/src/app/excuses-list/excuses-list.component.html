@@ -1,0 +1,120 @@
+
+<br>
+<br>
+<div class="container">
+  <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#SetEditModal">Registrar Excusa</button>
+</div>
+<br>
+
+
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Motivo de la excusa</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Actions</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ex of Excuses; let i = index;">
+        <td>{{ex.employee_Name}}</td>
+        <td>{{ex.employee_LastName}}</td>
+        <td>{{ex.excuseType.description}}</td>
+        <td>{{ex.employee_Date | date}}</td>
+        <td>
+          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group mr-2" role="group" aria-label="First group">
+              <button value="Editbtn" (click)="LoadExcuseData(ex.id)" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#SetEditModal">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M5.707 13.707a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391L10.086 2.5a2 2 0 0 1 2.828 0l.586.586a2 2 0 0 1 0 2.828l-7.793 7.793zM3 11l7.793-7.793a1 1 0 0 1 1.414 0l.586.586a1 1 0 0 1 0 1.414L5 13l-3 1 1-3z"/>
+                  <path fill-rule="evenodd" d="M9.854 2.56a.5.5 0 0 0-.708 0L5.854 5.855a.5.5 0 0 1-.708-.708L8.44 1.854a1.5 1.5 0 0 1 2.122 0l.293.292a.5.5 0 0 1-.707.708l-.293-.293z"/>
+                  <path d="M13.293 1.207a1 1 0 0 1 1.414 0l.03.03a1 1 0 0 1 .03 1.383L13.5 4 12 2.5l1.293-1.293z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group" data-toggle="modal" data-target="#DeleteModal">
+              <button (click)="SelectedExcuseId = ex.id"type="button" class="btn btn-secondary"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/></svg>
+              </button>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- SET/EDIT MODAL -->
+  <div class="modal fade" id="SetEditModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Registrar excusa</h5>
+          <button (click)="resetForm()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" [formGroup]="ExcusesForm">
+            <div *ngIf="FormIsInvalid" class="alert alert-danger" role="alert">
+              Existen errores en el formulario, debe corregirlos para poder continuar
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombres</label>
+              <input formControlName="employee_Name" type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Apellidos</label>
+              <input formControlName="employee_LastName"type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Motivo de la excusa</label>
+              <div class="input-group mb-3">
+                  <select class="custom-select" formControlName="excuseTypeId" >
+                    <option selected>Seleccione...</option>
+                    <option  *ngFor="let et of _ExcusesService.ExcusesType$| async" [value]="et.id">{{et.description}}</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Fecha</label>
+              <input formControlName="employee_Date" type="date" class="form-control">
+            </div>
+            {{ExcusesForm.invalid}}
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button value="submit" (click)="Submit()"type="button" class="btn btn-success" [attr.Data-dismiss]="ExcusesForm.invalid ?'': 'modal'" >Guardar</button>
+          <button (click)="resetForm()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Confirmation Modal for Delete action -->
+  <div class="modal fade" id="DeleteModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Eliminar excusa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4>¿Está seguro que desea eliminar este registro?</h4>
+        </div>
+        <div class="modal-footer">
+          <button (click)="DeleteExcuse()" type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
